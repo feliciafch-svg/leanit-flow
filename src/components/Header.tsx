@@ -13,22 +13,37 @@ export const Header = () => {
           <a href="/" className="flex items-center gap-3 group">
             <div className="relative">
               <svg 
-                className="w-8 h-8 transition-transform group-hover:scale-110 group-hover:rotate-12 duration-300" 
-                viewBox="0 0 64 64" 
+                className="w-8 h-8 transition-transform group-hover:scale-110 duration-300" 
+                viewBox="0 0 100 100" 
                 aria-label="Logo Lean'it"
               >
-                <g fill="none" stroke="hsl(var(--secondary))" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="32" cy="32" r="24"/>
-                  <path d="M12 22h40M12 42h40M32 8v12M32 44v12"/>
-                  <path d="M24 48c2-8 6-10 8-18m8 18c-2-8-6-10-8-18"/>
-                  <circle cx="24" cy="40" r="2.8"/>
-                  <circle cx="40" cy="40" r="2.8"/>
-                  <circle cx="32" cy="28" r="2.8"/>
+                <g fill="none" stroke="hsl(var(--secondary))" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Globe circle */}
+                  <circle cx="50" cy="50" r="40"/>
+                  
+                  {/* Vertical line */}
+                  <line x1="50" y1="10" x2="50" y2="90"/>
+                  
+                  {/* Horizontal ellipses */}
+                  <ellipse cx="50" cy="50" rx="40" ry="15"/>
+                  <ellipse cx="50" cy="50" rx="40" ry="25"/>
+                  
+                  {/* Connection nodes */}
+                  <circle cx="50" cy="30" r="4" fill="hsl(var(--secondary))"/>
+                  <circle cx="30" cy="50" r="4" fill="hsl(var(--secondary))"/>
+                  <circle cx="70" cy="50" r="4" fill="hsl(var(--secondary))"/>
+                  <circle cx="50" cy="70" r="4" fill="hsl(var(--secondary))"/>
+                  
+                  {/* Circuit lines */}
+                  <line x1="50" y1="30" x2="50" y2="20"/>
+                  <line x1="30" y1="50" x2="20" y2="50"/>
+                  <line x1="70" y1="50" x2="80" y2="50"/>
+                  <line x1="50" y1="70" x2="50" y2="80"/>
                 </g>
               </svg>
               <div className="absolute inset-0 blur-md opacity-50 group-hover:opacity-70 transition-opacity">
-                <svg className="w-8 h-8" viewBox="0 0 64 64">
-                  <circle cx="32" cy="32" r="24" fill="hsl(var(--accent))"/>
+                <svg className="w-8 h-8" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="40" fill="hsl(var(--accent))"/>
                 </svg>
               </div>
             </div>
