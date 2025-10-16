@@ -33,7 +33,7 @@ export const CTA = () => {
                   className="gradient-accent text-primary font-bold text-lg px-10 py-7 hover:scale-105 transition-transform shadow-elegant group"
                   asChild
                 >
-                  <a href="mailto:contact@leanit.fr">
+                  <a href="/contact">
                     Demander un audit gratuit
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </a>

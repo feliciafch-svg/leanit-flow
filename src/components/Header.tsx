@@ -53,7 +53,7 @@ export const Header = () => {
               className="gradient-accent text-primary font-semibold hover:scale-105 transition-transform shadow-elegant"
               asChild
             >
-              <a href="#contact">Audit gratuit</a>
+              <a href="/contact">Audit gratuit</a>
             </Button>
           </div>
 
@@ -97,7 +97,7 @@ export const Header = () => {
               className="w-full gradient-accent text-primary font-semibold"
               asChild
             >
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Audit gratuit</a>
+              <a href="/contact" onClick={() => setMobileMenuOpen(false)}>Audit gratuit</a>
             </Button>
           </div>
         )}
