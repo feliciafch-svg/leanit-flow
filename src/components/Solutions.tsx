@@ -63,7 +63,7 @@ export const Solutions = () => {
               style={{ animationDelay: `${0.2 + index * 0.15}s` }}
             >
               {/* Image */}
-              <div className="relative rounded-2xl overflow-hidden mb-6 aspect-square">
+              <div className="relative rounded-2xl overflow-hidden mb-6 h-48">
                 <img 
                   src={solution.image} 
                   alt={solution.title}
