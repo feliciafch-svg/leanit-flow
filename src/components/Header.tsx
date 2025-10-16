@@ -10,14 +10,14 @@ export const Header = () => {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
+          <a href="/" className="flex items-center gap-3 group">
             <div className="relative">
               <svg 
                 className="w-8 h-8 transition-transform group-hover:scale-110 group-hover:rotate-12 duration-300" 
                 viewBox="0 0 64 64" 
                 aria-label="Logo Lean'it"
               >
-                <g fill="none" stroke="hsl(var(--secondary))" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <g fill="none" stroke="hsl(var(--secondary))" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="32" cy="32" r="24"/>
                   <path d="M12 22h40M12 42h40M32 8v12M32 44v12"/>
                   <path d="M24 48c2-8 6-10 8-18m8 18c-2-8-6-10-8-18"/>
@@ -39,11 +39,14 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#solutions" className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
+            <a href="/#solutions" className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
               Solutions
             </a>
-            <a href="#cas" className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
+            <a href="/cas-etudes" className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
               Cas d'études
+            </a>
+            <a href="/#faq" className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
+              FAQ
             </a>
             <Button 
               variant="default" 
@@ -69,18 +72,25 @@ export const Header = () => {
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-3 animate-fade-in">
             <a 
-              href="#solutions" 
+              href="/#solutions" 
               className="block text-sm font-medium text-foreground/80 hover:text-accent transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Solutions
             </a>
             <a 
-              href="#cas" 
+              href="/cas-etudes" 
               className="block text-sm font-medium text-foreground/80 hover:text-accent transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Cas d'études
+            </a>
+            <a 
+              href="/#faq" 
+              className="block text-sm font-medium text-foreground/80 hover:text-accent transition-colors py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              FAQ
             </a>
             <Button 
               variant="default" 
