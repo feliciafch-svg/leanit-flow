@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { Phone, Mail, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
+import { Phone, Mail, CheckCircle2, ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -71,8 +71,8 @@ const ContactPage = () => {
                     <Phone className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <p className="font-semibold mb-1">Téléphone</p>
-                    <p className="text-foreground/80">+33 6 00 00 00 00</p>
+                    <p className="font-semibold mb-1">WhatsApp uniquement</p>
+                    <p className="text-foreground/80">06 37 49 73 68</p>
                   </div>
                 </div>
 
@@ -86,15 +86,6 @@ const ContactPage = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg glass border border-white/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-semibold mb-1">Adresse</p>
-                    <p className="text-foreground/80">Sophia Antipolis (06)</p>
-                  </div>
-                </div>
               </div>
 
               <div className="pt-6 border-t border-white/10">
