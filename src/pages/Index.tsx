@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { KPIs } from "@/components/KPIs";
 import { Solutions } from "@/components/Solutions";
 import { Testimonial } from "@/components/Testimonial";
+import { FAQ } from "@/components/FAQ";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 
@@ -15,6 +16,7 @@ const Index = () => {
         <KPIs />
         <Solutions />
         <Testimonial />
+        <FAQ />
         <CTA />
       </main>
       <Footer />
