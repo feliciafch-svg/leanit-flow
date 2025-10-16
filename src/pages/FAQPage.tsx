@@ -1,7 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight } from "lucide-react";
 
 const FAQPage = () => {
@@ -43,27 +42,36 @@ const FAQPage = () => {
             </p>
           </div>
 
-          <Accordion type="single" collapsible defaultValue="item-0" className="space-y-4">
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem 
+              <details 
                 key={index} 
-                value={`item-${index}`}
-                className="glass border border-white/10 rounded-lg px-6 overflow-hidden"
+                open={index === 0}
+                className="glass border border-white/10 rounded-lg overflow-hidden group animate-fade-in-up"
+                style={{ animationDelay: `${0.1 + index * 0.1}s` }}
               >
-                <AccordionTrigger className="text-left text-lg font-semibold hover:text-accent transition-colors py-6">
+                <summary className="text-left text-lg font-semibold hover:text-accent transition-colors py-6 px-6 cursor-pointer list-none flex items-center justify-between">
                   {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-foreground/80 pb-6">
+                  <svg 
+                    className="w-5 h-5 transition-transform duration-200 group-open:rotate-180" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-6 pb-6 text-foreground/80">
                   {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+                </div>
+              </details>
             ))}
-          </Accordion>
+          </div>
         </section>
 
         {/* CTA Section */}
         <section className="max-w-4xl mx-auto mt-16">
-          <div className="glass border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="glass border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 animate-fade-in-up">
             <div>
               <h3 className="text-2xl font-bold mb-2">Prêt·e à démarrer sereinement ?</h3>
               <p className="text-foreground/80">
