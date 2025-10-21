@@ -82,7 +82,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p className="font-semibold mb-1">Email</p>
-                    <p className="text-foreground/80">contact@leanit.fr</p>
+                    <p className="text-foreground/80">contact@leanit-automatisation.com</p>
                   </div>
                 </div>
 

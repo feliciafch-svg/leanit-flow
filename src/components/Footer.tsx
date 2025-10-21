@@ -33,11 +33,11 @@ export const Footer = () => {
 
           {/* Contact */}
           <a 
-            href="mailto:contact@leanit.fr" 
+            href="mailto:contact@leanit-automatisation.com" 
             className="flex items-center gap-2 text-sm text-foreground/80 hover:text-accent transition-colors group"
           >
             <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
-            <span>contact@leanit.fr</span>
+            <span>contact@leanit-automatisation.com</span>
           </a>
         </div>
       </div>
