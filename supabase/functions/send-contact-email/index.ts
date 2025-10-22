@@ -26,60 +26,75 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Sending contact email for:", { name, email });
 
-    try {
-      const businessEmail = resend.emails.send({
-        from: "Lean’it <no-reply@leanit-automatisation.com>", // ton domaine vérifié
-        to: ["contact@leanit-automatisation.com"],
-        reply_to: email, // tu pourras répondre au client direct
-        subject: "📬 Nouveau message via Lean’it",
-        html: `
-      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
-        <h2 style="color:#222;border-bottom:2px solid #522B5B;padding-bottom:10px">
-          Nouveau message reçu
-        </h2>
-        <div style="background:#FBE4D8;padding:16px;border-radius:8px;margin:16px 0;color:#190019">
-          <p><strong>Nom :</strong> ${name}</p>
-          <p><strong>Email :</strong> ${email}</p>
-          ${phone ? `<p><strong>Téléphone :</strong> ${phone}</p>` : ""}
+    // Send email to the business
+    const emailResponse = await resend.emails.send({
+      from: "Lean'it <onboarding@resend.dev>",
+      to: ["contact@leanit-automatisation.com"],
+      subject: "Nouveau message reçu depuis le site Lean'it",
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #333; border-bottom: 2px solid #4F46E5; padding-bottom: 10px;">
+            Nouveau message reçu
+          </h2>
+          
+          <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <p><strong>Nom :</strong> ${name}</p>
+            <p><strong>Email :</strong> ${email}</p>
+            ${phone ? `<p><strong>Téléphone :</strong> ${phone}</p>` : ""}
+          </div>
+          
+          <div style="margin: 20px 0;">
+            <p><strong>Message :</strong></p>
+            <p style="line-height: 1.6; color: #555; white-space: pre-wrap;">${message}</p>
+          </div>
+          
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #999; font-size: 12px;">
+            <p>Ce message a été envoyé depuis le formulaire de contact de Lean'it</p>
+          </div>
         </div>
-        <p style="margin:0 0 6px"><strong>Message :</strong></p>
-        <p style="line-height:1.6;white-space:pre-wrap;color:#2B124C">${message}</p>
-        <hr style="border:none;border-top:1px solid #eee;margin:24px 0"/>
-        <p style="color:#777;font-size:12px">Formulaire de contact Lean’it</p>
-      </div>
-    `,
-      });
+      `,
+    });
 
-      const customerEmail = resend.emails.send({
-        from: "Lean’it <no-reply@leanit-automatisation.com>",
-        to: [email],
-        subject: "Nous avons bien reçu votre message ✔︎",
-        html: `
-      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
-        <h2 style="color:#222">Merci, ${name} !</h2>
-        <p>Votre message a été bien reçu. Nous revenons vers vous sous 24h ouvrées.</p>
-        <p style="margin-top:16px">Rappel :</p>
-        <ul>
-          <li><strong>Email</strong> : ${email}</li>
-          ${phone ? `<li><strong>Téléphone</strong> : ${phone}</li>` : ""}
-        </ul>
-        <p style="color:#777;font-size:12px;margin-top:24px">Lean’it — Automatiser. Piloter. Respirer.</p>
-      </div>
-    `,
-      });
-
-      const results = await Promise.allSettled([businessEmail, customerEmail]);
-      console.log("Resend results:", results);
-
-      // Optionnel: vérifier les rejets
-      results.forEach((r, i) => {
-        if (r.status === "rejected") {
-          console.error(`Email ${i === 0 ? "business" : "customer"} failed:`, r.reason);
-        }
-      });
-    } catch (err) {
-      console.error("Resend fatal error:", err);
-    }
+    // Send confirmation email to the customer
+    const confirmationResponse = await resend.emails.send({
+      from: "Lean'it <onboarding@resend.dev>",
+      to: [email],
+      subject: "Nous avons bien reçu votre message !",
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h1 style="color: #4F46E5;">Merci de nous avoir contactés, ${name} !</h1>
+          
+          <p style="line-height: 1.6; color: #555;">
+            Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais, généralement sous 24-48 heures.
+          </p>
+          
+          <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #4F46E5;">
+            <p style="margin: 0; color: #1e40af;">
+              <strong>Votre message:</strong><br/>
+              ${message.replace(/\n/g, "<br>")}
+            </p>
+          </div>
+          
+          <p style="line-height: 1.6; color: #555;">
+            En attendant, n'hésitez pas à consulter nos solutions sur notre site web ou à nous contacter directement :
+          </p>
+          
+          <ul style="color: #555;">
+            <li>📱 WhatsApp : 06 37 49 73 68</li>
+            <li>✉️ Email : contact@leanit-automatisation.com</li>
+          </ul>
+          
+          <p style="line-height: 1.6; color: #555;">
+            À très bientôt,<br/>
+            <strong>L'équipe Lean'it</strong>
+          </p>
+          
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #999; font-size: 12px;">
+            <p>Cet email a été envoyé automatiquement, merci de ne pas y répondre directement.</p>
+          </div>
+        </div>
+      `,
+    });
 
     console.log("Emails sent successfully:", { emailResponse, confirmationResponse });
 
