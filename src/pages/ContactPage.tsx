@@ -11,6 +11,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 
 const formSchema = z.object({
   name: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
@@ -22,6 +24,8 @@ const formSchema = z.object({
 
 const ContactPage = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,13 +37,39 @@ const ContactPage = () => {
     }
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
-    toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons sous 24-48h.",
-    });
-    form.reset();
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
+    
+    try {
+      const { data: result, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          message: data.message
+        }
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Message envoyé !",
+        description: "Nous vous répondrons sous 24-48h. Un email de confirmation vous a été envoyé.",
+      });
+      
+      form.reset();
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        variant: "destructive",
+        title: "Erreur",
+        description: "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -196,9 +226,10 @@ const ContactPage = () => {
 
                   <Button 
                     type="submit" 
-                    className="w-full gradient-accent text-primary font-semibold hover:scale-105 transition-transform shadow-elegant"
+                    disabled={isSubmitting}
+                    className="w-full gradient-accent text-primary font-semibold hover:scale-105 transition-transform shadow-elegant disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Envoyer le message
+                    {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </form>
