@@ -28,24 +28,24 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email to the business
     const emailResponse = await resend.emails.send({
-      from: "Lean'it Contact <onboarding@resend.dev>",
+      from: "Lean'it <onboarding@resend.dev>",
       to: ["contact@leanit-automatisation.com"],
-      subject: `Nouveau message de contact de ${name}`,
+      subject: "Nouveau message reçu depuis le site Lean'it",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h1 style="color: #333; border-bottom: 2px solid #4F46E5; padding-bottom: 10px;">
-            Nouveau message de contact
-          </h1>
+          <h2 style="color: #333; border-bottom: 2px solid #4F46E5; padding-bottom: 10px;">
+            Nouveau message reçu
+          </h2>
           
           <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Nom:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            ${phone ? `<p><strong>Téléphone:</strong> ${phone}</p>` : ''}
+            <p><strong>Nom :</strong> ${name}</p>
+            <p><strong>Email :</strong> ${email}</p>
+            ${phone ? `<p><strong>Téléphone :</strong> ${phone}</p>` : ''}
           </div>
           
           <div style="margin: 20px 0;">
-            <h3 style="color: #333;">Message:</h3>
-            <p style="line-height: 1.6; color: #555;">${message.replace(/\n/g, '<br>')}</p>
+            <p><strong>Message :</strong></p>
+            <p style="line-height: 1.6; color: #555; white-space: pre-wrap;">${message}</p>
           </div>
           
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #999; font-size: 12px;">
