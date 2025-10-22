@@ -1,4 +1,6 @@
-import { FileSpreadsheet, Workflow, BarChart3, CheckCircle2 } from "lucide-react";
+import { FileSpreadsheet, Workflow, BarChart3, CheckCircle2, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import smartFilesImg from "@/assets/smart-files.jpg";
 import automationImg from "@/assets/automation-flows.jpg";
 import dashboardImg from "@/assets/dashboard-ui.jpg";
@@ -10,6 +12,7 @@ const solutions = [
     subtitle: "Excel et Sheets connectés à vos outils",
     description: "Des fichiers qui travaillent pour vous : calculs, contrôles, mises à jour et alertes intégrées.",
     image: smartFilesImg,
+    link: "/solutions/fichiers-intelligents",
     examples: [
       "Suivi de production automatisé",
       "Inventaire dynamique & réassort",
@@ -22,6 +25,7 @@ const solutions = [
     subtitle: "Intégrations riches & règles métiers",
     description: "Des processus intelligents qui exécutent les tâches répétitives et déclenchent les actions au bon moment.",
     image: automationImg,
+    link: "/solutions/automatisations",
     examples: [
       "Devis & factures automatiques",
       "Prospection & e-mails personnalisés",
@@ -34,6 +38,7 @@ const solutions = [
     subtitle: "Pilotage clair & reporting instantané",
     description: "Vos indicateurs clés en temps réel, présentés simplement pour faciliter la décision et le management visuel.",
     image: dashboardImg,
+    link: "/solutions/dashboards",
     examples: [
       "KPIs opérationnels en direct",
       "Tableaux de bord équipe/client",
@@ -85,7 +90,7 @@ export const Solutions = () => {
                 <p className="text-foreground/80 leading-relaxed">{solution.description}</p>
 
                 {/* Examples */}
-                <div className="glass rounded-xl p-4 space-y-2">
+                <div className="glass rounded-xl p-4 space-y-2 mb-4">
                   <p className="text-sm font-semibold text-secondary mb-3">Exemples d'usage :</p>
                   <ul className="space-y-2">
                     {solution.examples.map((example, i) => (
@@ -96,6 +101,14 @@ export const Solutions = () => {
                     ))}
                   </ul>
                 </div>
+
+                {/* CTA Button */}
+                <Button asChild variant="outline" className="w-full group">
+                  <Link to={solution.link}>
+                    En savoir plus
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
               </div>
             </article>
           ))}
