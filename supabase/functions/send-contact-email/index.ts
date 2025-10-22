@@ -27,10 +27,11 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Sending contact email for:", { name, email });
 
     // Send email to the business
+    // Note: Using felicia.fch@hotmail.com until domain is verified on Resend
     const emailResponse = await resend.emails.send({
       from: "Lean'it <onboarding@resend.dev>",
       to: ["felicia.fch@hotmail.com"],
-      subject: "Nouveau message reçu depuis le site Lean'it",
+      subject: `[Contact Site] Nouveau message de ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #4F46E5; padding-bottom: 10px;">
