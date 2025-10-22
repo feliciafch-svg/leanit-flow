@@ -40,7 +40,7 @@ const handler = async (req: Request): Promise<Response> => {
           <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>Nom :</strong> ${name}</p>
             <p><strong>Email :</strong> ${email}</p>
-            ${phone ? `<p><strong>Téléphone :</strong> ${phone}</p>` : ''}
+            ${phone ? `<p><strong>Téléphone :</strong> ${phone}</p>` : ""}
           </div>
           
           <div style="margin: 20px 0;">
@@ -71,7 +71,7 @@ const handler = async (req: Request): Promise<Response> => {
           <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #4F46E5;">
             <p style="margin: 0; color: #1e40af;">
               <strong>Votre message:</strong><br/>
-              ${message.replace(/\n/g, '<br>')}
+              ${message.replace(/\n/g, "<br>")}
             </p>
           </div>
           
@@ -99,32 +99,32 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Emails sent successfully:", { emailResponse, confirmationResponse });
 
     return new Response(
-      JSON.stringify({ 
-        success: true, 
-        message: "Emails sent successfully" 
-      }), 
+      JSON.stringify({
+        success: true,
+        message: "Emails sent successfully",
+      }),
       {
         status: 200,
         headers: {
           "Content-Type": "application/json",
           ...corsHeaders,
         },
-      }
+      },
     );
   } catch (error: any) {
     console.error("Error in send-contact-email function:", error);
     return new Response(
-      JSON.stringify({ 
-        success: false, 
-        error: error.message 
+      JSON.stringify({
+        success: false,
+        error: error.message,
       }),
       {
         status: 500,
-        headers: { 
-          "Content-Type": "application/json", 
-          ...corsHeaders 
+        headers: {
+          "Content-Type": "application/json",
+          ...corsHeaders,
         },
-      }
+      },
     );
   }
 };
