@@ -29,7 +29,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send email to the business
     const emailResponse = await resend.emails.send({
       from: "Lean'it <onboarding@resend.dev>",
-      to: ["contact@leanit-automatisation.com"],
+      to: ["felicia.fch@hotmail.com"],
       subject: "Nouveau message reçu depuis le site Lean'it",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
