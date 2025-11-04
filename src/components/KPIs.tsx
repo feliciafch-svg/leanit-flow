@@ -5,19 +5,19 @@ const kpis = [
     icon: TrendingUp,
     value: "+40%",
     label: "de productivité",
-    description: "en moyenne sur les équipes",
-  },
-  {
-    icon: Zap,
-    value: "24/7",
-    label: "disponibilité",
-    description: "garantie sans interruption",
+    description: "moyenne sur les équipes",
   },
   {
     icon: Clock,
     value: "15h/sem",
     label: "économisées",
     description: "par équipe en moyenne",
+  },
+  {
+    icon: Zap,
+    value: "24/7",
+    label: "disponibilité",
+    description: "sans interruption ni oubli",
   },
 ];
 
@@ -29,7 +29,7 @@ export const KPIs = () => {
           Résultats mesurables
         </h2>
         <p className="text-center text-foreground/70 mb-16 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-          Des gains concrets pour votre organisation
+          Des gains concrets et durables pour vos équipes
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">

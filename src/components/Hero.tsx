@@ -32,8 +32,7 @@ export const Hero = () => {
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-center text-foreground/80 max-w-3xl mx-auto mb-10 animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.2s' }}>
-            <strong className="text-foreground font-semibold">Lean'it</strong> conçoit des systèmes simples et élégants pour faire gagner du temps à vos équipes : 
-            <strong className="text-accent"> fichiers intelligents</strong>, <strong className="text-accent">automatisations sur-mesure</strong> et <strong className="text-accent">dashboards intuitifs</strong>.
+            <strong className="text-foreground font-semibold">Lean'it</strong> conçoit des systèmes automatisés et intuitifs pour faire gagner du temps aux entreprises et fluidifier leurs opérations.
           </p>
 
           {/* CTA Buttons */}
