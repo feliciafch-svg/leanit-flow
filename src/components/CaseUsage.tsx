@@ -1,5 +1,7 @@
-import { Building2, Home } from "lucide-react";
+import { Building2, Home, ArrowRight } from "lucide-react";
 import { CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const useCases = [
   {
@@ -76,6 +78,21 @@ export const CaseUsage = () => {
               </div>
             </article>
           ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="text-center mt-12 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="glass border-foreground/20 text-foreground font-semibold text-lg px-8 py-6 hover:bg-foreground/5 transition-all group"
+            asChild
+          >
+            <Link to="/cas-etudes">
+              Voir tous les cas d'études
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
