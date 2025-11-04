@@ -8,7 +8,7 @@ const useCases = [
     icon: Home,
     title: "Immobilier",
     emoji: "🏡",
-    description: "Automatisations adaptées aux agences et gestionnaires de biens",
+    description: "Automatisez vos relances, mandats et suivis — pour consacrer plus de temps à vos clients.",
     examples: [
       "Relances clients et suivis de mandats automatiques",
       "Tableaux de bord de ventes et visites",
@@ -19,7 +19,7 @@ const useCases = [
     icon: Building2,
     title: "PME & Services",
     emoji: "⚙️",
-    description: "Process fiabilisés pour les entreprises de services",
+    description: "Fiabilisez vos devis, factures et reporting — tout en réduisant les erreurs manuelles.",
     examples: [
       "Devis, factures et rappels automatisés",
       "Reporting RH ou commercial en temps réel",
