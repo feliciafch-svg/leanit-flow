@@ -305,7 +305,10 @@ const DashboardsPage = () => {
           </div>
         </section>
 
-        <CTA />
+        <CTA 
+          title="Prêt à piloter votre activité en toute clarté ?"
+          description="Demandez un audit gratuit — en 30 minutes, identifions les indicateurs et automatisations les plus pertinents pour votre métier."
+        />
       </main>
       
       <Footer />

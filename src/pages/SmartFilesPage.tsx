@@ -256,7 +256,10 @@ const SmartFilesPage = () => {
           </div>
         </section>
 
-        <CTA />
+        <CTA 
+          title="Prêt à transformer vos fichiers en assistants intelligents ?"
+          description="Demandez un audit gratuit — en 30 minutes, identifions vos leviers d'automatisation et de performance."
+        />
       </main>
       
       <Footer />

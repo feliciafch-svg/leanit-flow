@@ -1,7 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock } from "lucide-react";
 
-export const CTA = () => {
+interface CTAProps {
+  title?: string;
+  description?: string;
+}
+
+export const CTA = ({ 
+  title = "Prêt à piloter votre activité en toute clarté ?",
+  description = "Demandez un audit gratuit — en 30 minutes, identifions les indicateurs et automatisations les plus pertinents pour votre métier."
+}: CTAProps) => {
   return (
     <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-4">
@@ -14,10 +22,10 @@ export const CTA = () => {
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
               <div className="flex-1 text-center lg:text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  Prêt à piloter votre activité en toute clarté ?
+                  {title}
                 </h2>
                 <p className="text-lg text-foreground/80 mb-6">
-                  Demandez un audit gratuit — en 30 minutes, identifions les indicateurs et automatisations les plus pertinents pour votre métier.
+                  {description}
                 </p>
                 
                 {/* Urgency Badge */}

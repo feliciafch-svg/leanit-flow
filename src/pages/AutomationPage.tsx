@@ -274,7 +274,10 @@ const AutomationPage = () => {
           </div>
         </section>
 
-        <CTA />
+        <CTA 
+          title="Prêt à automatiser ce qui vous fait perdre du temps ?"
+          description="Demandez un audit gratuit — en 30 minutes, je vous montre comment gagner en efficacité et en fluidité au quotidien."
+        />
       </main>
       
       <Footer />
