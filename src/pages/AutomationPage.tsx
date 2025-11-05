@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, Workflow, Zap, Mail, FileText, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import automationImg from "@/assets/automation-flows.jpg";
+import checkIcon from "@/assets/check-icon.png";
 
 const AutomationPage = () => {
   const benefits = [
@@ -265,7 +266,7 @@ const AutomationPage = () => {
                     className="glass rounded-xl p-6 animate-fade-in-up"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <CheckCircle2 className="w-8 h-8 text-accent mx-auto mb-3" />
+                    <img src={checkIcon} alt="Check" className="w-8 h-8 mx-auto mb-3" />
                     <p className="text-lg font-medium">{promise}</p>
                   </div>
                 ))}
