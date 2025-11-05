@@ -19,7 +19,10 @@ const Index = () => {
         <CaseUsage />
         <Testimonial />
         <FAQ />
-        <CTA />
+        <CTA 
+          title="Prêt à reprendre le contrôle de votre temps ?"
+          description="Demandez un audit gratuit — en 30 minutes, identifions les automatisations et optimisations les plus utiles à votre entreprise."
+        />
       </main>
       <Footer />
     </div>
