@@ -10,23 +10,23 @@ const AutomationPage = () => {
   const benefits = [
     {
       icon: Zap,
-      title: "3h/jour économisées",
-      description: "Automatisation complète des tâches répétitives"
+      title: "3h/j économisées",
+      description: "Chaque jour, vos équipes gagnent plusieurs heures grâce à l'automatisation des tâches répétitives."
     },
     {
       icon: Users,
       title: "Équipes libérées",
-      description: "Plus de temps pour les tâches à valeur ajoutée"
+      description: "Moins d'administratif, plus de focus sur la valeur et les clients."
     },
     {
       icon: CheckCircle2,
       title: "0 erreur manuelle",
-      description: "Exécution parfaite à chaque fois"
+      description: "Des process exécutés avec précision, sans oubli ni doublon."
     },
     {
       icon: Workflow,
       title: "Processus fluides",
-      description: "Actions déclenchées au bon moment automatiquement"
+      description: "Des actions déclenchées automatiquement au bon moment."
     }
   ];
 
@@ -34,43 +34,43 @@ const AutomationPage = () => {
     {
       icon: FileText,
       title: "Devis & Factures",
-      description: "Génération automatique de devis personnalisés et facturation instantanée dès validation",
-      examples: ["Calculs automatiques", "Envoi par email", "Relances programmées"]
+      description: "Des devis générés automatiquement et des factures envoyées dès validation — sans perte de temps.",
+      examples: ["Calculs et tarifs automatisés", "Envoi et archivage automatiques", "Relances planifiées"]
     },
     {
       icon: Mail,
       title: "Prospection intelligente",
-      description: "Campagnes d'emails personnalisés selon le profil et le comportement de vos prospects",
-      examples: ["Segmentation auto", "Emails personnalisés", "Suivi des réponses"]
+      description: "Des e-mails personnalisés envoyés selon le comportement et le profil de vos prospects.",
+      examples: ["Segmentation dynamique", "Envoi automatique selon les réponses", "Suivi et relances automatisés"]
     },
     {
       icon: Users,
       title: "Recrutement optimisé",
-      description: "Tri automatique des CV, réponses aux candidats et suivi du processus de recrutement",
-      examples: ["Analyse des CV", "Réponses automatiques", "Planning d'entretiens"]
+      description: "Un processus de recrutement sans friction : analyse de CV, réponses automatiques et planification d'entretiens.",
+      examples: ["Analyse automatique des candidatures", "Réponses personnalisées", "Organisation d'entretiens automatisée"]
     }
   ];
 
   const process = [
     {
       step: "1",
-      title: "Audit de vos processus",
-      description: "J'analyse vos tâches répétitives et identifie les opportunités d'automatisation"
+      title: "Audit & Diagnostic",
+      description: "Identification des tâches chronophages et des opportunités d'automatisation."
     },
     {
       step: "2",
-      title: "Design des workflows",
-      description: "Conception de flux logiques et robustes adaptés à votre métier"
+      title: "Design & Conception",
+      description: "Création de workflows clairs, adaptés à votre métier."
     },
     {
       step: "3",
-      title: "Intégration & tests",
-      description: "Connexion avec vos outils existants et validation du bon fonctionnement"
+      title: "Intégration & Tests",
+      description: "Connexion à vos outils existants et validation des scénarios."
     },
     {
       step: "4",
-      title: "Formation & suivi",
-      description: "Accompagnement de vos équipes pour une autonomie complète"
+      title: "Formation & Suivi",
+      description: "Transmission, support et autonomie complète de vos équipes."
     }
   ];
 
@@ -92,15 +92,15 @@ const AutomationPage = () => {
                   <span className="block text-accent mt-2">qui libèrent votre temps</span>
                 </h1>
                 <p className="text-xl text-foreground/70 leading-relaxed">
-                  Des processus intelligents qui exécutent vos tâches répétitives et déclenchent 
-                  les bonnes actions au moment parfait.
+                  Des automatisations simples et puissantes qui exécutent vos tâches répétitives, 
+                  déclenchent les bonnes actions et vous font gagner plusieurs heures par semaine.
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <Button asChild size="lg" className="shadow-elegant">
-                    <Link to="/contact">Démarrer l'automatisation</Link>
+                    <Link to="/contact">Découvrir mon audit gratuit</Link>
                   </Button>
                   <Button asChild variant="outline" size="lg">
-                    <Link to="/cas-etudes">Cas concrets</Link>
+                    <Link to="/cas-etudes">Voir des exemples</Link>
                   </Button>
                 </div>
               </div>
@@ -124,7 +124,7 @@ const AutomationPage = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">L'impact de l'automatisation</h2>
-              <p className="text-lg text-foreground/70">Transformez votre productivité immédiatement</p>
+              <p className="text-lg text-foreground/70">Transformez vos journées et votre efficacité dès maintenant.</p>
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -151,7 +151,7 @@ const AutomationPage = () => {
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">Cas d'usage concrets</h2>
               <p className="text-lg text-foreground/70">
-                Des automatisations qui répondent à vos besoins métiers
+                Des automatisations qui s'adaptent à vos besoins métiers.
               </p>
             </div>
 
@@ -191,9 +191,9 @@ const AutomationPage = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold mb-4">Mon processus d'automatisation</h2>
+                <h2 className="text-4xl font-bold mb-4">Notre méthode d'automatisation</h2>
                 <p className="text-lg text-foreground/70">
-                  Une méthode éprouvée pour des résultats garantis
+                  Une approche éprouvée, simple et efficace.
                 </p>
               </div>
 
@@ -224,16 +224,15 @@ const AutomationPage = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-4xl font-bold mb-6">Intégrations riches & règles métiers</h2>
+              <h2 className="text-4xl font-bold mb-6">Intégrations & compatibilités</h2>
               <p className="text-xl text-foreground/70 leading-relaxed mb-12">
-                Je connecte vos outils existants (CRM, ERP, comptabilité, emails...) 
-                et crée des règles intelligentes qui respectent votre logique métier.
+                Lean'it s'intègre à vos outils pour créer des flux parfaitement connectés.
               </p>
               
               <div className="glass rounded-3xl p-8 md:p-12">
                 <h3 className="text-2xl font-bold mb-6">Outils compatibles</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {["Google Sheets", "Excel", "Gmail", "Outlook", "Slack", "Trello", "HubSpot", "Zapier"].map((tool, index) => (
+                  {["Google Sheets", "Excel", "Gmail", "Outlook", "Trello", "HubSpot", "Slack", "Notion", "Zapier", "Make"].map((tool, index) => (
                     <div 
                       key={index}
                       className="glass rounded-xl p-4 hover:scale-105 transition-transform animate-fade-in"
@@ -257,9 +256,9 @@ const AutomationPage = () => {
               
               <div className="grid md:grid-cols-3 gap-8">
                 {[
-                  "Gain de temps dès la première semaine",
-                  "0% d'erreurs dans l'exécution des tâches",
-                  "ROI positif en moins d'un mois"
+                  "⏱️ Gain de temps dès la première semaine",
+                  "✅ Zéro erreur dans l'exécution des tâches",
+                  "📈 Un retour sur investissement en moins d'un mois"
                 ].map((promise, index) => (
                   <div 
                     key={index}
