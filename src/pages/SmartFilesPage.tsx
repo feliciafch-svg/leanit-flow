@@ -10,51 +10,51 @@ const SmartFilesPage = () => {
   const benefits = [
     {
       icon: Clock,
-      title: "Jusqu'à 3h économisées/jour",
-      description: "Automatisation des tâches répétitives et saisie simplifiée"
+      title: "Jusqu'à 3h économisées par jour",
+      description: "Automatisation des tâches répétitives et saisies manuelles."
     },
     {
       icon: TrendingUp,
-      title: "10× plus lisibles",
-      description: "Des fichiers structurés, clairs et intuitifs pour tous"
+      title: "10× plus clairs et lisibles",
+      description: "Des fichiers structurés, compréhensibles et intuitifs pour toute l'équipe."
     },
     {
       icon: Shield,
-      title: "-80% d'erreurs",
-      description: "Contrôles automatiques et validation intelligente"
+      title: "-80 % d'erreurs",
+      description: "Contrôles automatiques, cohérence garantie et validations intégrées."
     },
     {
       icon: Zap,
       title: "Auto-alimentés",
-      description: "Connexions directes avec vos outils existants"
+      description: "Données mises à jour automatiquement depuis vos outils (CRM, ERP, formulaires, etc.)."
     }
   ];
 
   const features = [
-    "Fichiers Excel et Google Sheets connectés à vos outils métiers",
-    "Calculs automatisés et contrôles de cohérence intégrés",
+    "Connexion directe à vos outils métiers (CRM, ERP, Gmail, Sheets, etc.)",
+    "Calculs automatiques et contrôles d'erreurs intégrés",
     "Alertes intelligentes en cas d'anomalie ou d'action requise",
-    "Suivi de production en temps réel",
-    "Inventaire dynamique avec réassort automatique",
-    "Templates de reporting et planification"
+    "Suivi de production et reporting en temps réel",
+    "Inventaire dynamique et réassort automatisé",
+    "Tableaux de bord et plannings mis à jour automatiquement"
   ];
 
   const offers = [
     {
       title: "Audit de fichiers",
-      description: "Analyse approfondie de vos fichiers existants et recommandations d'optimisation"
+      description: "Analyse approfondie de vos fichiers existants et recommandations d'amélioration."
     },
     {
       title: "Refonte sur-mesure",
-      description: "Reconstruction complète de vos outils selon vos besoins spécifiques"
+      description: "Reconstruction complète de vos outils selon vos besoins métiers."
     },
     {
       title: "Templates prêts à l'emploi",
-      description: "Solutions standardisées adaptables rapidement à votre contexte"
+      description: "Modèles standardisés, rapides à adapter et à déployer."
     },
     {
       title: "Formation équipe",
-      description: "Formation courte et ciblée pour rendre vos équipes autonomes"
+      description: "Sessions ciblées pour rendre vos équipes autonomes dans l'usage et la maintenance."
     }
   ];
 
@@ -76,15 +76,15 @@ const SmartFilesPage = () => {
                   <span className="block text-accent mt-2">qui travaillent pour vous</span>
                 </h1>
                 <p className="text-xl text-foreground/70 leading-relaxed">
-                  Transformez vos Excel et Google Sheets en outils puissants : auto-alimentés, 
-                  sans erreurs, connectés à votre écosystème.
+                  Transformez vos fichiers Excel ou Google Sheets en véritables outils métiers : 
+                  auto-alimentés, sans erreurs et connectés à votre écosystème.
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <Button asChild size="lg" className="shadow-elegant">
-                    <Link to="/contact">Audit gratuit</Link>
+                    <Link to="/contact">Demander un audit gratuit</Link>
                   </Button>
                   <Button asChild variant="outline" size="lg">
-                    <Link to="/cas-etudes">Voir des exemples</Link>
+                    <Link to="/cas-etudes">Voir des exemples concrets</Link>
                   </Button>
                 </div>
               </div>
@@ -108,7 +108,7 @@ const SmartFilesPage = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">Des résultats mesurables dès J+1</h2>
-              <p className="text-lg text-foreground/70">Impact immédiat sur votre productivité</p>
+              <p className="text-lg text-foreground/70">Un gain de productivité visible dès la mise en place.</p>
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -136,7 +136,7 @@ const SmartFilesPage = () => {
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold mb-4">Ce que vos fichiers peuvent faire</h2>
                 <p className="text-lg text-foreground/70">
-                  Bien plus que des tableaux : de véritables assistants automatisés
+                  Bien plus que des tableurs : de véritables assistants automatisés.
                 </p>
               </div>
 
@@ -165,7 +165,7 @@ const SmartFilesPage = () => {
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold mb-4">Ma méthode en 3 leviers</h2>
                 <p className="text-lg text-foreground/70">
-                  Une approche Lean pour éliminer les gaspillages
+                  Une approche Lean pour éliminer les tâches inutiles et les erreurs.
                 </p>
               </div>
 
@@ -174,17 +174,17 @@ const SmartFilesPage = () => {
                   {
                     number: "01",
                     title: "Automatisation intelligente",
-                    description: "Fichiers qui s'auto-alimentent, évitent les erreurs et fluidifient la saisie"
+                    description: "Des fichiers qui s'auto-alimentent, contrôlent les données et fluidifient la saisie."
                   },
                   {
                     number: "02",
                     title: "Process Lean",
-                    description: "Repenser les processus pour réduire les gaspillages de temps, d'énergie et d'attention"
+                    description: "Repenser les étapes pour réduire les pertes de temps, d'énergie et d'attention."
                   },
                   {
                     number: "03",
                     title: "KPI structurés",
-                    description: "Indicateurs clés organisés pour piloter avec clarté, sans surcharge mentale"
+                    description: "Des indicateurs clairs et centralisés pour piloter avec confiance."
                   }
                 ].map((lever, index) => (
                   <div 
@@ -209,7 +209,7 @@ const SmartFilesPage = () => {
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold mb-4">Ce que je vous propose</h2>
                 <p className="text-lg text-foreground/70">
-                  Des formules adaptées à vos besoins et votre rythme
+                  Des solutions adaptées à votre besoin et votre rythme.
                 </p>
               </div>
 
@@ -238,17 +238,17 @@ const SmartFilesPage = () => {
               
               <div className="grid md:grid-cols-3 gap-8">
                 {[
-                  "Vous gagnez du temps dès la première semaine",
-                  "Vos équipes retrouvent de la clarté et de la fluidité",
-                  "Vous pilotez avec des outils simples et efficaces"
-                ].map((promise, index) => (
+                  { emoji: "⏱️", text: "Vous gagnez du temps dès la première semaine." },
+                  { emoji: "🧭", text: "Vos équipes retrouvent de la clarté et de la sérénité." },
+                  { emoji: "📊", text: "Vous pilotez avec des outils simples, fiables et efficaces." }
+                ].map(({ emoji, text }, index) => (
                   <div 
                     key={index}
                     className="glass rounded-xl p-6 animate-fade-in-up"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <CheckCircle2 className="w-8 h-8 text-accent mx-auto mb-3" />
-                    <p className="text-lg font-medium">{promise}</p>
+                    <div className="text-4xl mb-3">{emoji}</div>
+                    <p className="text-lg font-medium">{text}</p>
                   </div>
                 ))}
               </div>

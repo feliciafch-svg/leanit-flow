@@ -14,10 +14,10 @@ export const CTA = () => {
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
               <div className="flex-1 text-center lg:text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  Envie de gagner du temps dès la semaine prochaine ?
+                  Prêt à transformer vos fichiers en assistants intelligents ?
                 </h2>
                 <p className="text-lg text-foreground/80 mb-6">
-                  Demandez votre audit gratuit — je vous montre comment automatiser vos tâches clés et booster votre performance.
+                  Demandez un audit gratuit — en 30 minutes, identifions vos leviers d'automatisation et de performance.
                 </p>
                 
                 {/* Urgency Badge */}
