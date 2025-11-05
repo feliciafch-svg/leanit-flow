@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, Workflow, Zap, Mail, FileText, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import automationImg from "@/assets/automation-flows.jpg";
-import checkIcon from "@/assets/check-icon.png";
 
 const AutomationPage = () => {
   const benefits = [
@@ -257,17 +256,17 @@ const AutomationPage = () => {
               
               <div className="grid md:grid-cols-3 gap-8">
                 {[
-                  "⏱️ Gain de temps dès la première semaine",
-                  "✅ Zéro erreur dans l'exécution des tâches",
-                  "📈 Un retour sur investissement en moins d'un mois"
-                ].map((promise, index) => (
+                  { emoji: "⏱️", text: "Gain de temps dès la première semaine" },
+                  { emoji: "✅", text: "Zéro erreur dans l'exécution des tâches" },
+                  { emoji: "📈", text: "Un retour sur investissement en moins d'un mois" }
+                ].map(({ emoji, text }, index) => (
                   <div 
                     key={index}
                     className="glass rounded-xl p-6 animate-fade-in-up"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <img src={checkIcon} alt="Check" className="w-8 h-8 mx-auto mb-3" />
-                    <p className="text-lg font-medium">{promise}</p>
+                    <div className="text-4xl mb-3">{emoji}</div>
+                    <p className="text-lg font-medium">{text}</p>
                   </div>
                 ))}
               </div>
