@@ -222,8 +222,8 @@ const ContactPage = () => {
                   {/* Widget Calendly ajouté juste en dessous du bouton */}
                   <div 
                     className="calendly-inline-widget" 
-                    data-url="https://calendly.com/contact-leanit-automatisation/30min" 
-                    style={{ width: '100%', height: '780px' }}
+                    data-url="https://calendly.com/contact-leanit-automatisation/30min?primary_color=5a2549" 
+                    style={{ minWidth: '320px', height: '700px' }}
                   ></div>
                 </form>
               </Form>
