@@ -17,8 +17,7 @@ import { useState } from "react";
 const formSchema = z.object({
   name: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
   email: z.string().email("Email invalide"),
-  phone: z.string().optional(),
-  message: z.string().min(10, "Le message doit contenir au moins 10 caractères"),
+  message: z.string().optional(), // Rendu optionnel
   privacy: z.boolean().refine((val) => val === true, "Vous devez accepter la politique de confidentialité")
 });
 
@@ -31,8 +30,7 @@ const ContactPage = () => {
     defaultValues: {
       name: "",
       email: "",
-      phone: "",
-      message: "",
+      message: "", // Gardé mais optionnel
       privacy: false
     }
   });
@@ -45,7 +43,7 @@ const ContactPage = () => {
         body: {
           name: data.name,
           email: data.email,
-          phone: data.phone,
+          // phone retiré
           message: data.message
         }
       });
@@ -171,26 +169,14 @@ const ContactPage = () => {
                     />
                   </div>
 
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Téléphone</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Votre numéro de téléphone" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  {/* Champ Téléphone supprimé */}
 
                   <FormField
                     control={form.control}
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message *</FormLabel>
+                        <FormLabel>Message</FormLabel> {/* Retiré * car optionnel */}
                         <FormControl>
                           <Textarea 
                             placeholder="Décrivez votre projet..." 
@@ -232,6 +218,13 @@ const ContactPage = () => {
                     {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
+
+                  {/* Widget Calendly ajouté juste en dessous du bouton */}
+                  <div 
+                    className="calendly-inline-widget" 
+                    data-url="https://calendly.com/contact-leanit-automatisation/30min" 
+                    style={{ width: '100%', height: '780px' }}
+                  ></div>
                 </form>
               </Form>
             </div>
