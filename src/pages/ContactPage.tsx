@@ -1,25 +1,49 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Phone, Mail, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Phone, Mail, CheckCircle2, ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const ContactPage = () => {
+  const calendlyRef = useRef<HTMLDivElement | null>(null);
+
+  // Assure le render du widget si le script est déjà chargé
+  useEffect(() => {
+    const ready = () =>
+      (window as any).Calendly?.initInlineWidget?.({
+        url: "https://calendly.com/contact-leanit-automatisation/30min?primary_color=5a2549",
+        parentElement: calendlyRef.current!,
+        prefill: {},
+        utm: {},
+      });
+
+    if ((window as any).Calendly?.initInlineWidget && calendlyRef.current) {
+      ready();
+      return;
+    }
+
+    const onLoad = () => calendlyRef.current && ready();
+    window.addEventListener("load", onLoad);
+    return () => window.removeEventListener("load", onLoad);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       <main className="flex-1 container mx-auto px-4 py-16">
         <section className="max-w-6xl mx-auto">
           <div className="text-center mb-12 animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
-              Transformez votre entreprise avec Lean'it
+              Transformez votre entreprise avec Lean’it
             </h1>
             <p className="text-lg text-foreground/80">
-              Parlons de vos besoins et concevons des solutions qui travaillent pour vous.
+              Réservez un créneau de 30 minutes — on évalue vos gains rapides et le plan d’action.
             </p>
           </div>
 
           <div className="grid md:grid-cols-[1fr_2fr] gap-8">
-            {/* Contact Info Card */}
+            {/* Carte d’infos (on garde) */}
             <aside className="glass border border-white/10 rounded-2xl p-8 h-fit space-y-8">
               <div>
                 <h3 className="text-2xl font-bold mb-2">Contact</h3>
@@ -46,7 +70,6 @@ const ContactPage = () => {
                     <p className="text-foreground/80">contact@leanit-automatisation.com</p>
                   </div>
                 </div>
-
               </div>
 
               <div className="pt-6 border-t border-white/10">
@@ -68,14 +91,15 @@ const ContactPage = () => {
               </div>
             </aside>
 
-            {/* Widget Calendly (remplace le formulaire) */}
-            <div className="glass border border-white/10 rounded-2xl p-8">
-              {/* Widget Calendly ajouté */}
-              <div 
-                className="calendly-inline-widget" 
-                data-url="https://calendly.com/contact-leanit-automatisation/30min?primary_color=5a2549" 
-                style={{ minWidth: '320px', height: '700px' }}
-              ></div>
+            {/* Calendly only */}
+            <div className="glass border border-white/10 rounded-2xl p-0 overflow-hidden">
+              <div
+                id="rdv"
+                ref={calendlyRef}
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/contact-leanit-automatisation/30min?primary_color=5a2549"
+                style={{ minWidth: "320px", height: "780px" }}
+              />
             </div>
           </div>
         </section>
@@ -84,17 +108,15 @@ const ContactPage = () => {
         <section className="max-w-6xl mx-auto mt-16">
           <div className="glass border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-2xl font-bold mb-2">Besoin d'un audit express ?</h3>
-              <p className="text-foreground/80">
-                Nous identifions vos quick wins en 48 h.
-              </p>
+              <h3 className="text-2xl font-bold mb-2">Besoin d’un audit express ?</h3>
+              <p className="text-foreground/80">Nous identifions vos quick wins en 48 h.</p>
             </div>
-            <Button 
+            <Button
               className="gradient-accent text-primary font-semibold hover:scale-105 transition-transform shadow-elegant whitespace-nowrap"
               asChild
             >
-              <a href="/contact">
-                Demander un audit gratuit
+              <a href="#rdv">
+                Réserver un créneau
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
