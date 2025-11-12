@@ -1,75 +1,8 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import { Phone, Mail, CheckCircle2, ArrowRight } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { useToast } from "@/hooks/use-toast";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { supabase } from "@/integrations/supabase/client";
-import { useState } from "react";
-
-const formSchema = z.object({
-  name: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
-  email: z.string().email("Email invalide"),
-  message: z.string().optional(), // Rendu optionnel
-  privacy: z.boolean().refine((val) => val === true, "Vous devez accepter la politique de confidentialité")
-});
+import { Phone, Mail, CheckCircle2 } from "lucide-react";
 
 const ContactPage = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "", // Gardé mais optionnel
-      privacy: false
-    }
-  });
-
-  const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    setIsSubmitting(true);
-    
-    try {
-      const { data: result, error } = await supabase.functions.invoke('send-contact-email', {
-        body: {
-          name: data.name,
-          email: data.email,
-          // phone retiré
-          message: data.message
-        }
-      });
-
-      if (error) {
-        throw error;
-      }
-
-      toast({
-        title: "Message envoyé !",
-        description: "Nous vous répondrons sous 24-48h. Un email de confirmation vous a été envoyé.",
-      });
-      
-      form.reset();
-    } catch (error) {
-      console.error("Error sending email:", error);
-      toast({
-        variant: "destructive",
-        title: "Erreur",
-        description: "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -135,98 +68,14 @@ const ContactPage = () => {
               </div>
             </aside>
 
-            {/* Contact Form */}
+            {/* Widget Calendly (remplace le formulaire) */}
             <div className="glass border border-white/10 rounded-2xl p-8">
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Nom complet *</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Votre nom" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email *</FormLabel>
-                          <FormControl>
-                            <Input type="email" placeholder="votre@email.com" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-
-                  {/* Champ Téléphone supprimé */}
-
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Message</FormLabel> {/* Retiré * car optionnel */}
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Décrivez votre projet..." 
-                            className="min-h-[150px]"
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="privacy"
-                    render={({ field }) => (
-                      <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                        <FormControl>
-                          <Checkbox 
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                          />
-                        </FormControl>
-                        <div className="space-y-1 leading-none">
-                          <FormLabel>
-                            J'accepte la politique de confidentialité *
-                          </FormLabel>
-                          <FormMessage />
-                        </div>
-                      </FormItem>
-                    )}
-                  />
-
-                  <Button 
-                    type="submit" 
-                    disabled={isSubmitting}
-                    className="w-full gradient-accent text-primary font-semibold hover:scale-105 transition-transform shadow-elegant disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-
-                  {/* Widget Calendly ajouté juste en dessous du bouton */}
-                  <div 
-                    className="calendly-inline-widget" 
-                    data-url="https://calendly.com/contact-leanit-automatisation/30min?primary_color=5a2549" 
-                    style={{ minWidth: '320px', height: '700px' }}
-                  ></div>
-                </form>
-              </Form>
+              {/* Widget Calendly ajouté */}
+              <div 
+                className="calendly-inline-widget" 
+                data-url="https://calendly.com/contact-leanit-automatisation/30min?primary_color=5a2549" 
+                style={{ minWidth: '320px', height: '700px' }}
+              ></div>
             </div>
           </div>
         </section>
